@@ -1,6 +1,6 @@
 # SHF (Si Huo Format) 死活題格式
 
-![Version](https://img.shields.io/badge/version-0.4.0-blue.svg)
+![Version](https://img.shields.io/badge/version-0.9.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 [![Tests](https://github.com/linuxjackie/shf_format/workflows/Python%20Tests/badge.svg)](https://github.com/linuxjackie/shf_format/actions)

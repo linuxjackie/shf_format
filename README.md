@@ -3,9 +3,6 @@
 ![Version](https://img.shields.io/badge/version-0.9.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-[![Tests](https://github.com/linuxjackie/shf_format/workflows/Python%20Tests/badge.svg)](https://github.com/linuxjackie/shf_format/actions)
-[![codecov](https://codecov.io/gh/linuxjackie/shf_format/branch/main/graph/badge.svg)](https://codecov.io/gh/linuxjackie/shf_format)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 SHF是一種專為記錄圍棋死活題而設計的高效、簡潔的文本格式。以下是SHF格式的詳細定義：
 

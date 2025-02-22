@@ -1,0 +1,31 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# 頂層 EditorConfig 文件
+root = true
+
+# 所有文件
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Python 文件
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 88  # 符合 black 格式化工具的要求
+
+# Markdown 文件
+[*.{md,markdown}]
+trim_trailing_whitespace = false
+
+# YAML 文件
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# 配置文件
+[*.{ini,toml,cfg}]
+indent_style = space
+indent_size = 4 

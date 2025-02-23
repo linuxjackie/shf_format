@@ -54,12 +54,12 @@ Each line in an SHF file represents one life and death problem, formatted as fol
    - 3: 19x19 board
 
 4. `initial_positions`: Initial board position
-   - Format: `[B|W][a-s][a-s]`
+   - Format: `[B|W][a-t][a-t]` (skipping i)
    - Example: `Ba1,Wb2,Bc3`
    - Optional: Comment can be added at the end using #, e.g., `Ba1,Wb2#This is a comment`
 
 5. `answers`: Answer sequences
-   - Format: `[+|-|/][B|W][a-s][a-s](,...)#comment`
+   - Format: `[+|-|/][B|W][a-t][a-t](,...)#comment` (skipping i)
    - +: Correct answer
    - -: Wrong answer
    - /: Variation
@@ -111,7 +111,7 @@ def validate_shf(line):
     # Validate initial positions
     positions = initial.split('#')[0]
     for pos in positions.split(','):
-        if pos and not re.match(r'^[BW][a-s][a-s]$', pos):
+        if pos and not re.match(r'^[BW][a-hj-t][a-hj-t]$', pos):
             return False, f"Invalid position format: {pos}"
             
     # Validate answers
@@ -120,7 +120,7 @@ def validate_shf(line):
             continue
         if '#' in ans:
             ans = ans.split('#')[0]
-        if not re.match(r'^[+\-/][BW][a-s][a-s]', ans):
+        if not re.match(r'^[+\-/][BW][a-hj-t][a-hj-t]', ans):
             return False, f"Invalid answer format: {ans}"
             
     return True, "Format is valid"
@@ -143,8 +143,8 @@ Examples:
 1. Encoding: UTF-8
 2. Line endings: Unix style (LF)
 3. Coordinate system:
-   - a-s represents positions 1-19
-   - 'i' is not used
+   - a-t represents positions 1-19 (skipping i)
+   - 'i' is not used (to avoid confusion with 'l')
    - Top-left corner is a1
 
 ## Use Cases

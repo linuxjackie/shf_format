@@ -67,7 +67,7 @@ CREATE UNIQUE INDEX idx_level_problem_id ON problems(level, problem_id);
    - 級別格式：1d-9d, 1k-30k, 00
    - 題目編號：5位數字
    - 棋盤大小：1, 2, 3
-   - 座標格式：小寫 a-s（不使用 i）
+   - 座標格式：小寫 a-t（跳過 i）
 
 ## 注意事項
 

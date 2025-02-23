@@ -55,12 +55,12 @@ level:id:size:initial_positions:answers
    - 3：19路盤
 
 4. `initial_positions`: 初始局面
-   - 格式：`[B|W][a-s][a-s]`
+   - 格式：`[B|W][a-t][a-t]`（跳過 i）
    - 例如：`Ba1,Wb2,Bc3`
    - 可選：末尾可加注釋，使用#分隔，如：`Ba1,Wb2#這是注釋`
 
 5. `answers`: 答案序列
-   - 格式：`[+|-|/][B|W][a-s][a-s](,...)#comment`
+   - 格式：`[+|-|/][B|W][a-t][a-t](,...)#comment`（跳過 i）
    - +：正確答案
    - -：錯誤答案
    - /：變化
@@ -112,7 +112,7 @@ def validate_shf(line):
     # 驗證初始位置
     positions = initial.split('#')[0]
     for pos in positions.split(','):
-        if pos and not re.match(r'^[BW][a-s][a-s]$', pos):
+        if pos and not re.match(r'^[BW][a-hj-t][a-hj-t]$', pos):
             return False, f"無效的位置格式：{pos}"
             
     # 驗證答案
@@ -121,7 +121,7 @@ def validate_shf(line):
             continue
         if '#' in ans:
             ans = ans.split('#')[0]
-        if not re.match(r'^[+\-/][BW][a-s][a-s]', ans):
+        if not re.match(r'^[+\-/][BW][a-hj-t][a-hj-t]', ans):
             return False, f"無效的答案格式：{ans}"
             
     return True, "格式正確"
@@ -144,8 +144,8 @@ print(message)
 1. 編碼：UTF-8
 2. 換行：Unix 風格（LF）
 3. 座標系統：
-   - a-s 表示 1-19 路
-   - 不使用 i 座標
+   - a-t 表示 1-19 路（跳過 i）
+   - 不使用 i 座標（避免與 l 混淆）
    - 左上角為 a1
 
 ## 使用場景
